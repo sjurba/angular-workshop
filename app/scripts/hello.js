@@ -2,11 +2,11 @@
 var app = angular.module('helloApp', []);
 app.controller('HelloController',
   function($scope){
-    $scope.yourName = 'World';
+    $scope.person = {};
     $scope.list = [];
-    $scope.addNameToList = function(){
-      $scope.list.push($scope.yourName);
-      $scope.yourName = '';
+    $scope.addPersonToList = function(){
+      $scope.list.push($scope.person);
+      $scope.person = {};
     };
   }
 );
