@@ -23,17 +23,17 @@
 
 
   <div ng-controller="HelloController">
-    <form name="personForm">
+    <form name="personForm" ng-submit="addPersonToList()" >
 
       <h1>Hello {{person.name}}!</h1>
 
       <label>Name:</label>
-      <input type="text" ng-model="person.name" >
+      <input type="text" ng-model="person.name" required>
       <label>E-mail:</label>
-      <input type="email" ng-model="person.email">
+      <input type="email" ng-model="person.email" required>
       <label>Phone:</label>
-      <input type="phone" ng-model="person.phone">
-      <button class='button' ng-click="addPersonToList()">Add to list</button>
+      <input type="tel" ng-model="person.phone">
+      <input type="submit" class='button' value="Add to list">
     </form>
     <ul>
       <li ng-repeat="person in list">
