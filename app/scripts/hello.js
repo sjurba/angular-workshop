@@ -10,3 +10,11 @@ app.controller('HelloController',
     };
   }
 );
+app.filter('secret', function(){
+  return function(value, symbol){
+    symbol = symbol || '*';
+    var parts = value.split('@');
+    parts[0] = parts[0].replace(/./g, symbol);
+    return parts.join('@');
+  };
+});
