@@ -25,7 +25,7 @@
   <div ng-controller="HelloController">
     <form name="personForm" ng-submit="addPersonToList()" >
 
-      <h1>Hello {{person.name}}!</h1>
+      <hello-person person="person"></hello-person>
 
       <label>Name:</label>
       <input type="text" ng-model="person.name" required>
@@ -37,7 +37,7 @@
     </form>
     <ul>
       <li ng-repeat="person in list">
-        <span>{{person.name}} - {{person.email | secret }}</span>
+        <span red>{{person.name}} - {{person.email | secret }}</span>
       </li>
     </ul>
   </div>
@@ -53,6 +53,8 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
