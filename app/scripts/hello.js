@@ -22,6 +22,9 @@ app.filter('secret', function(){
 app.directive('helloPerson', function(){
    return {
      restrict: 'E',
+     scope: {
+       person: '='
+     },
      templateUrl: 'partials/hello.html'
    };
  });
