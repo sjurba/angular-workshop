@@ -18,3 +18,10 @@ app.filter('secret', function(){
     return parts.join('@');
   };
 });
+
+app.directive('helloPerson', function(){
+   return {
+     restrict: 'E',
+     templateUrl: 'partials/hello.html'
+   };
+ });
