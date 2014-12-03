@@ -25,7 +25,7 @@
   <div ng-controller="HelloController">
     <form name="personForm" ng-submit="addPersonToList()" >
 
-      <h1>Hello {{person.name}}!</h1>
+      <div ng-include="'partials/hello.html'"></div>
 
       <label>Name:</label>
       <input type="text" ng-model="person.name" required>
