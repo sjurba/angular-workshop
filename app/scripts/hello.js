@@ -1,11 +1,11 @@
 'use strict';
-var app = angular.module('helloApp', []);
+var app = angular.module('helloApp', ['firebase']);
 app.controller('HelloController',
-  function($scope){
+  function($scope, Persons){
     $scope.person = {};
-    $scope.list = [];
+    $scope.list = Persons;
     $scope.addPersonToList = function(){
-      $scope.list.push($scope.person);
+      $scope.list.$add($scope.person);
       $scope.person = {};
     };
   }
@@ -36,4 +36,9 @@ app.directive('helloPerson', function(){
        element.css({'color': 'red'});
      }
    };
+ });
+ app.value('fbURL', 'https://webstep-angular-ws.firebaseio.com/');
+
+ app.factory('Persons', function($firebase, fbURL) {
+   return $firebase(new Firebase(fbURL)).$asArray();
  });
