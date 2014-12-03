@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app='helloApp'>
 <head>
   <meta charset="utf-8">
   <title>frontend</title>
@@ -22,10 +22,25 @@
 
 
 
-  <h1>{{'Hello world'}}</h1>
+  <div ng-controller="HelloController">
+    <form name="personForm" ng-submit="addPersonToList()" >
 
+      <h1>Hello {{person.name}}!</h1>
 
-
+      <label>Name:</label>
+      <input type="text" ng-model="person.name" required>
+      <label>E-mail:</label>
+      <input type="email" ng-model="person.email" required>
+      <label>Phone:</label>
+      <input type="tel" ng-model="person.phone">
+      <input type="submit" class='button' value="Add to list">
+    </form>
+    <ul>
+      <li ng-repeat="person in list">
+        <span>{{person.name}} - {{person.email | secret }}</span>
+      </li>
+    </ul>
+  </div>
 
 
 
@@ -42,6 +57,8 @@
     <!-- endbuild -->
 
     <!-- build:js({app,.tmp}) scripts/main.js -->
+
+    <script src="scripts/hello.js" charset="utf-8"></script>
 
     <!-- inject:partials -->
     <!-- angular templates will be automaticaly converted in js and inserted here -->

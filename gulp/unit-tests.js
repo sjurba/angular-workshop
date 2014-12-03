@@ -1,6 +1,7 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp = require('gulp'),
+    karma = require('karma').server;
 
 var $ = require('gulp-load-plugins')();
 
@@ -28,4 +29,12 @@ gulp.task('test', function() {
       // Make sure failed tests cause gulp to exit non-zero
       throw err;
     });
+});
+
+gulp.task('unit', function(done) {
+  karma.start({
+    configFile: __dirname + '/../test/karma.conf.js',
+    singleRun: false,
+    autoWatch: true
+  }, done);
 });
