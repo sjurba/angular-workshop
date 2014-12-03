@@ -28,3 +28,12 @@ app.directive('helloPerson', function(){
      templateUrl: 'partials/hello.html'
    };
  });
+
+ app.directive('red', function(){
+   return {
+     restrict: 'A',
+     link: function(scope, element) {
+       element.css({'color': 'red'});
+     }
+   };
+ });
